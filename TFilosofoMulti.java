@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.util.Arrays;
 import java.util.concurrent.Semaphore;
 
@@ -8,8 +6,9 @@ public class TFilosofoMulti implements Runnable {
     Filosofo f;
     Semaphore g1, g2, s;
     Long ti, wait;
+    boolean[] forks, comeu;
 
-    public TFilosofoMulti(Filosofo _f, Semaphore _g1, Semaphore _g2, Long _wait, Long _ti, int _n, Semaphore _s) {
+    public TFilosofoMulti(Filosofo _f, Semaphore _g1, Semaphore _g2, Long _wait, Long _ti, int _n, Semaphore _s, boolean[] _forks, boolean[] _comeu) {
         f = _f;
         g1 = _g1;
         g2 = _g2;
@@ -17,38 +16,52 @@ public class TFilosofoMulti implements Runnable {
         ti = _ti;
         n = _n;
         s = _s;
+        forks = _forks;
+        comeu = _comeu;
     }
 
     @Override
     public void run() {
-        try {
-            s.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        boolean a1 = g1.tryAcquire();
-        boolean a2 = g2.tryAcquire();
-        s.release();
-
-        if (a1 && a2) {
-            f.pegaGarfo(f.i);
-            f.pegaGarfo((f.i + 1) % n);
-
-            f.state = states.COMENDO;
+        int i = f.i;
+        int j = (f.i + 1) % n;
+        
+        while (f.state == states.FOME) {
             try {
-                Thread.sleep(wait);
+                s.acquire();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            f.soltaGarfo(f.i);
-
-            f.soltaGarfo((f.i + 1) % n);
-
-            executionTime(ti);
+            if (forks[i] && forks[j]) {
+                forks[i] = false;
+                forks[j] = false;
+                f.pegaGarfo(i);
+                f.pegaGarfo(j);
+                f.state = states.COMENDO;
+            }
+            s.release();
         }
-        g1.release();
-        g2.release();
+
+            try {
+                Thread.sleep(1000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            f.soltaGarfo(i);
+            f.soltaGarfo(j);
+            forks[i] = true;
+            forks[j] = true;
+            comeu[i] = true;
+
+//        try {
+//            Thread.sleep(wait);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        executionTime(ti);
+//        g1.release();
+//        g2.release();
 
     }
 
