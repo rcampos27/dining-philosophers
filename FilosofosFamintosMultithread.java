@@ -30,10 +30,10 @@ public class FilosofosFamintosMultithread {
         }
 
         for (int i = 0; i < n; i++) {
-            Filosofo f = new Filosofo(i);
+            Filosofo f = new Filosofo(i, n);
             ti[i] = System.currentTimeMillis();
             int j = (i + 1) % n;
-            TFilosofoMulti tf = new TFilosofoMulti(f, g[i], g[j], wait, ti[i], n, s, forks, comeu);
+            TFilosofoMulti tf = new TFilosofoMulti(f, g, wait, ti[i], n, s, forks, comeu);
             threads[i] = new Thread(tf);
         }
 

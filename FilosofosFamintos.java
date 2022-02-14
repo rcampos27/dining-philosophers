@@ -16,7 +16,7 @@ public class FilosofosFamintos {
 
     public void run() {
         for (int i = 0; i < n; i++) {
-            Filosofo f = new Filosofo(i);
+            Filosofo f = new Filosofo(i, n);
             ti[i] = System.currentTimeMillis();
             TFilosofo tf = new TFilosofo(f, s, wait, ti[i]);
             threads[i] = new Thread(tf);
