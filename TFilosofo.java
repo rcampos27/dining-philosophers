@@ -1,15 +1,18 @@
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 class TFilosofo implements Runnable {
     Filosofo f;
+    Long start;
     Semaphore s;
-    Long ti, wait;
+    Long[] tesp, ttotal;
 
-    public TFilosofo(Filosofo _f, Semaphore _s, Long _wait, Long _ti) {
+    public TFilosofo(Filosofo _f, Semaphore _s, Long[] _tesp, Long[] _ttotal, Long _start) {
         f = _f;
         s = _s;
-        wait = _wait;
-        ti = _ti;
+        start = _start;
+        tesp = _tesp;
+        ttotal = _ttotal;
     }
 
     @Override
@@ -19,29 +22,36 @@ class TFilosofo implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+//        f.pegaGarfo(f.i);
+//        f.pegaGarfo((f.i + 1) % 5);
 
-        f.pegaGarfo(f.i);
-        f.pegaGarfo((f.i + 1) % 5);
+        calculateWaitingTime();
+
         f.state = states.COMENDO;
 
         try {
-            Thread.sleep(wait);
+            Random rand = new Random();
+            long r = (long) (rand.nextInt(6) * 1000) + 1000;
+
+            Thread.sleep(r);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        f.soltaGarfo(f.i);
-        f.soltaGarfo((f.i + 1) % 5);
+//        f.soltaGarfo(f.i);
+//        f.soltaGarfo((f.i + 1) % 5);
 
-        executionTime(ti);
+        calculateTotalTime();
 
         s.release();
     }
 
-    public void executionTime(Long ti) {
-        Long tf = System.currentTimeMillis();
-        System.out.print("Tempo espera = ");
-        System.out.print(tf - ti);
-        System.out.print("\n");
+    public void calculateWaitingTime() {
+        tesp[f.i] = System.currentTimeMillis() - start;
+    }
+
+
+    public void calculateTotalTime() {
+        ttotal[f.i] = System.currentTimeMillis() - start;
     }
 }

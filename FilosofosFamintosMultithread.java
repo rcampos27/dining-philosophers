@@ -1,39 +1,35 @@
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.concurrent.Semaphore;
 
 
 public class FilosofosFamintosMultithread {
     int n;
-    Long wait;
     Thread[] threads;
-    Long[] ti;
-    Semaphore[] g;
+    Long[] tesp, ttotal;
+    long start;
     Semaphore s = new Semaphore(1);
-    boolean[] forks, comeu;
+    boolean[] forks;
+    PrintWriter writter;
 
-    public FilosofosFamintosMultithread(int _n, Long _wait) {
+    public FilosofosFamintosMultithread(int _n, PrintWriter _w) {
         n = _n;
-        wait = _wait;
         threads = new Thread[n];
-        g = new Semaphore[n];
-        ti = new Long[n];
+        tesp = new Long[n];
+        ttotal = new Long[n];
         forks = new boolean[n];
-        comeu = new boolean[n];
-
+        writter = _w;
     }
 
     public void run() {
+        start = System.currentTimeMillis();
         for (int i = 0; i < n; i++) {
-            g[i] = new Semaphore(1);
             forks[i] = true;
-            comeu[i] = false;
         }
 
         for (int i = 0; i < n; i++) {
             Filosofo f = new Filosofo(i, n);
-            ti[i] = System.currentTimeMillis();
-            int j = (i + 1) % n;
-            TFilosofoMulti tf = new TFilosofoMulti(f, g, wait, ti[i], n, s, forks, comeu);
+            TFilosofoMulti tf = new TFilosofoMulti(f, tesp, ttotal, start, n, s, forks);
             threads[i] = new Thread(tf);
         }
 
@@ -47,7 +43,18 @@ public class FilosofosFamintosMultithread {
                 e.printStackTrace();
             }
         }
-        System.out.print("Filosofos comeram = ");
-        System.out.println(Arrays.toString(comeu));
+
+        writter.print("Tempo total de espera = ");
+        writter.println(Arrays.toString(tesp));
+        writter.print("Tempo total de execução = ");
+        writter.println(Arrays.toString(ttotal));
+
+        long total = 0L;
+        for (int i = 0; i < n; i++) {
+            total += ttotal[i];
+        }
+
+        writter.print("Tempo total de execução = ");
+        writter.println(total);
     }
 }

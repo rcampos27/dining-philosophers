@@ -1,24 +1,22 @@
-import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 public class TFilosofoMulti implements Runnable {
     int n;
     Filosofo f;
-    Semaphore[] g;
     Semaphore s;
-    Long ti, wait;
-    boolean[] forks, comeu;
+    Long start;
+    Long[] tesp, ttotal;
+    boolean[] forks;
 
-    public TFilosofoMulti(Filosofo _f, Semaphore[] _g, Long _wait, Long _ti, int _n, Semaphore _s, boolean[] _forks, boolean[] _comeu) {
+    public TFilosofoMulti(Filosofo _f, Long[] _tesp, Long[] _texec, Long _start, int _n, Semaphore _s, boolean[] _forks) {
         f = _f;
-        g = _g;
-
-        wait = _wait;
-        ti = _ti;
+        start = _start;
         n = _n;
         s = _s;
+        tesp = _tesp;
+        ttotal = _texec;
         forks = _forks;
-        comeu = _comeu;
     }
 
     @Override
@@ -33,38 +31,36 @@ public class TFilosofoMulti implements Runnable {
                 e.printStackTrace();
             }
             if (forks[i] && forks[j]) {
+
                 forks[i] = false;
                 forks[j] = false;
-                f.pegaGarfos(i, g, forks);
+                f.pegaGarfos(i, forks);
+
+                calculateWaitingTime();
             }
             s.release();
         }
 
         try {
-            Thread.sleep(1000L);
+            Random rand = new Random();
+            long r = (long) (rand.nextInt(6) * 1000) + 1000;
+
+            Thread.sleep(r);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        f.soltaGarfos(i,g, forks);
-        comeu[i] = true;
 
-//        try {
-//            Thread.sleep(wait);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        executionTime(ti);
-//        g1.release();
-//        g2.release();
+        f.soltaGarfos(i, forks);
 
+        calculateTotalTime();
     }
 
-    public void executionTime(Long ti) {
-        Long tf = System.currentTimeMillis();
-        System.out.print("Tempo espera = ");
-        System.out.println(tf - ti);
-        System.out.printf("!!! Filosofo %d comeu !!!\n", f.i);
+    public void calculateWaitingTime() {
+        tesp[f.i] = System.currentTimeMillis() - start;
+    }
+
+
+    public void calculateTotalTime() {
+        ttotal[f.i] = System.currentTimeMillis() - start;
     }
 }

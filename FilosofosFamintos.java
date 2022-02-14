@@ -1,24 +1,25 @@
+import java.util.Arrays;
 import java.util.concurrent.Semaphore;
 
 public class FilosofosFamintos {
     int n;
-    Long wait;
     Thread[] threads;
-    Long[] ti;
+    Long start;
+    Long[] tesp, ttotal;
     Semaphore s = new Semaphore(1);
 
-    public FilosofosFamintos(int _n, Long _wait) {
+    public FilosofosFamintos(int _n) {
         n = _n;
-        wait = _wait;
         threads = new Thread[n];
-        ti = new Long[n];
+        tesp = new Long[n];
+        ttotal = new Long[n];
     }
 
     public void run() {
+        start = System.currentTimeMillis();
         for (int i = 0; i < n; i++) {
             Filosofo f = new Filosofo(i, n);
-            ti[i] = System.currentTimeMillis();
-            TFilosofo tf = new TFilosofo(f, s, wait, ti[i]);
+            TFilosofo tf = new TFilosofo(f, s, tesp, ttotal, start);
             threads[i] = new Thread(tf);
         }
 
@@ -33,5 +34,12 @@ public class FilosofosFamintos {
             }
         }
 
+        System.out.print("Tempo total de espera = ");
+        System.out.println(Arrays.toString(tesp));
+        System.out.print("Tempo total de execução = ");
+        System.out.println(Arrays.toString(ttotal));
+        for (int i = 0; i < n; i++) {
+            System.out.print(" [" + (ttotal[i] - tesp[i]) + "] ");
+        }
     }
 }
