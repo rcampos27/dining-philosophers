@@ -1,0 +1,246 @@
+FILOSOS FAMINTOS SEQUENCIAL 4
+Tempo médio de espera = 4001
+Tempo médio de execução = 2500
+Tempo total de execução = 26009
+
+FILOSOS FAMINTOS MULTITHREAD 4
+Tempo médio de espera = 2006
+Tempo médio de execução = 4000
+Tempo total de execução = 24027
+
+FILOSOS FAMINTOS SEQUENCIAL 8
+Tempo médio de espera = 15626
+Tempo médio de execução = 4250
+Tempo total de execução = 159010
+
+FILOSOS FAMINTOS MULTITHREAD 8
+Tempo médio de espera = 2752
+Tempo médio de execução = 3875
+Tempo total de execução = 53022
+
+FILOSOS FAMINTOS SEQUENCIAL 16
+Tempo médio de espera = 27001
+Tempo médio de execução = 3500
+Tempo total de execução = 488032
+
+FILOSOS FAMINTOS MULTITHREAD 16
+Tempo médio de espera = 2320
+Tempo médio de execução = 3250
+Tempo total de execução = 89140
+
+FILOSOS FAMINTOS SEQUENCIAL 32
+Tempo médio de espera = 64380
+Tempo médio de execução = 4187
+Tempo total de execução = 2194181
+
+FILOSOS FAMINTOS MULTITHREAD 32
+Tempo médio de espera = 2830
+Tempo médio de execução = 3437
+Tempo total de execução = 200589
+
+FILOSOS FAMINTOS SEQUENCIAL 64
+Tempo médio de espera = 107726
+Tempo médio de execução = 3343
+Tempo total de execução = 7108483
+
+FILOSOS FAMINTOS MULTITHREAD 64
+Tempo médio de espera = 2314
+Tempo médio de execução = 3297
+Tempo total de execução = 359117
+
+FILOSOS FAMINTOS SEQUENCIAL 128
+Tempo médio de espera = 237447
+Tempo médio de execução = 3648
+Tempo total de execução = 30860298
+
+FILOSOS FAMINTOS MULTITHREAD 128
+Tempo médio de espera = 2248
+Tempo médio de execução = 3429
+Tempo total de execução = 726821
+
+FILOSOS FAMINTOS SEQUENCIAL 256
+Tempo médio de espera = 457024
+Tempo médio de execução = 3593
+Tempo total de execução = 117918330
+
+FILOSOS FAMINTOS MULTITHREAD 256
+Tempo médio de espera = 2527
+Tempo médio de execução = 3602
+Tempo total de execução = 1569223
+
+FILOSOS FAMINTOS SEQUENCIAL 512
+Tempo médio de espera = 933019
+Tempo médio de execução = 3564
+Tempo total de execução = 479531259
+
+FILOSOS FAMINTOS MULTITHREAD 512
+Tempo médio de espera = 2311
+Tempo médio de execução = 3451
+Tempo total de execução = 2950360
+
+--------------------------------
+
+FILOSOS FAMINTOS SEQUENCIAL 4
+Tempo médio de espera = 5500
+Tempo médio de execução = 3250
+Tempo total de execução = 35001
+
+FILOSOS FAMINTOS MULTITHREAD 4
+Tempo médio de espera = 2002
+Tempo médio de execução = 4750
+Tempo total de execução = 27010
+
+FILOSOS FAMINTOS SEQUENCIAL 8
+Tempo médio de espera = 7750
+Tempo médio de execução = 2250
+Tempo total de execução = 80009
+
+FILOSOS FAMINTOS MULTITHREAD 8
+Tempo médio de espera = 3004
+Tempo médio de execução = 4376
+Tempo total de execução = 59047
+
+FILOSOS FAMINTOS SEQUENCIAL 16
+Tempo médio de espera = 29376
+Tempo médio de execução = 4062
+Tempo total de execução = 535027
+
+FILOSOS FAMINTOS MULTITHREAD 16
+Tempo médio de espera = 2755
+Tempo médio de execução = 3750
+Tempo total de execução = 104089
+
+FILOSOS FAMINTOS SEQUENCIAL 32
+Tempo médio de espera = 48346
+Tempo médio de execução = 3187
+Tempo total de execução = 1649099
+
+FILOSOS FAMINTOS MULTITHREAD 32
+Tempo médio de espera = 2975
+Tempo médio de execução = 3656
+Tempo total de execução = 212211
+
+FILOSOS FAMINTOS SEQUENCIAL 64
+Tempo médio de espera = 105819
+Tempo médio de execução = 3343
+Tempo total de execução = 6986449
+
+FILOSOS FAMINTOS MULTITHREAD 64
+Tempo médio de espera = 2173
+Tempo médio de execução = 3516
+Tempo total de execução = 364153
+
+FILOSOS FAMINTOS SEQUENCIAL 128
+Tempo médio de espera = 217864
+Tempo médio de execução = 3586
+Tempo total de execução = 28345713
+
+FILOSOS FAMINTOS MULTITHREAD 128
+Tempo médio de espera = 2350
+Tempo médio de execução = 3484
+Tempo total de execução = 746876
+
+FILOSOS FAMINTOS SEQUENCIAL 256
+Tempo médio de espera = 439881
+Tempo médio de execução = 3453
+Tempo total de execução = 113493822
+
+FILOSOS FAMINTOS MULTITHREAD 256
+Tempo médio de espera = 2217
+Tempo médio de execução = 3414
+Tempo total de execução = 1441650
+
+FILOSOS FAMINTOS SEQUENCIAL 512
+Tempo médio de espera = 873423
+Tempo médio de execução = 3410
+Tempo total de execução = 448938983
+
+FILOSOS FAMINTOS MULTITHREAD 512
+Tempo médio de espera = 2287
+Tempo médio de execução = 3410
+Tempo total de execução = 2917226
+
+--------------------------------
+
+FILOSOS FAMINTOS SEQUENCIAL 4
+Tempo médio de espera = 5000
+Tempo médio de execução = 4000
+Tempo total de execução = 36003
+
+FILOSOS FAMINTOS MULTITHREAD 4
+Tempo médio de espera = 2502
+Tempo médio de execução = 2250
+Tempo total de execução = 19009
+
+FILOSOS FAMINTOS SEQUENCIAL 8
+Tempo médio de espera = 10250
+Tempo médio de execução = 3125
+Tempo total de execução = 107007
+
+FILOSOS FAMINTOS MULTITHREAD 8
+Tempo médio de espera = 3252
+Tempo médio de execução = 4000
+Tempo total de execução = 58023
+
+FILOSOS FAMINTOS SEQUENCIAL 16
+Tempo médio de espera = 19626
+Tempo médio de execução = 2687
+Tempo total de execução = 357030
+
+FILOSOS FAMINTOS MULTITHREAD 16
+Tempo médio de espera = 2754
+Tempo médio de execução = 4187
+Tempo total de execução = 111076
+
+FILOSOS FAMINTOS SEQUENCIAL 32
+Tempo médio de espera = 50253
+Tempo médio de execução = 3406
+Tempo total de execução = 1717109
+
+FILOSOS FAMINTOS MULTITHREAD 32
+Tempo médio de espera = 1823
+Tempo médio de execução = 2812
+Tempo total de execução = 148349
+
+FILOSOS FAMINTOS SEQUENCIAL 64
+Tempo médio de espera = 102319
+Tempo médio de execução = 3297
+Tempo total de execução = 6759441
+
+FILOSOS FAMINTOS MULTITHREAD 64
+Tempo médio de espera = 2355
+Tempo médio de execução = 3328
+Tempo total de execução = 363816
+
+FILOSOS FAMINTOS SEQUENCIAL 128
+Tempo médio de espera = 214771
+Tempo médio de execução = 3586
+Tempo total de execução = 27949767
+
+FILOSOS FAMINTOS MULTITHREAD 128
+Tempo médio de espera = 2358
+Tempo médio de execução = 3570
+Tempo total de execução = 758936
+
+FILOSOS FAMINTOS SEQUENCIAL 256
+Tempo médio de espera = 442632
+Tempo médio de execução = 3453
+Tempo total de execução = 114198015
+
+FILOSOS FAMINTOS MULTITHREAD 256
+Tempo médio de espera = 2249
+Tempo médio de execução = 3488
+Tempo total de execução = 1468982
+
+FILOSOS FAMINTOS SEQUENCIAL 512
+Tempo médio de espera = 908759
+Tempo médio de execução = 3468
+Tempo total de execução = 467061053
+
+FILOSOS FAMINTOS MULTITHREAD 512
+Tempo médio de espera = 2392
+Tempo médio de execução = 3568
+Tempo total de execução = 3052002
+
+--------------------------------
+
