@@ -8,27 +8,32 @@ public class Main {
     public static void main(String[] args) {
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter("the-file-name.txt", "UTF-8");
+            writer = new PrintWriter("teste.txt", "UTF-8");
         } catch (FileNotFoundException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         assert writer != null;
 
+        for(int t = 0; t <= 2; t ++){
 
-        int[] n = {4, 8, 16, 32, 64, 128, 256, 512};
-        for (int j : n) {
+            int[] n = {4, 8, 16, 32, 64, 128, 256, 512};
+            for (int i : n) {
+                System.out.printf("Loop %d com n = %d", t, i);
 
-            System.out.printf("FILOSOS FAMINTOS SEQUENCIAL %d\n", j);
-            SequentialNoThread snt = new SequentialNoThread(j, writer);
-            snt.run();
+                writer.printf("FILOSOS FAMINTOS SEQUENCIAL %d\n", i);
+                SequentialNoThread snt = new SequentialNoThread(i, writer);
+                snt.run();
 
-            System.out.printf("FILOSOS FAMINTOS MULTITHREAD %d\n", j);
-            FilosofosFamintosMultithread ffm = new FilosofosFamintosMultithread(j, writer);
-            ffm.run();
+                writer.printf("FILOSOS FAMINTOS MULTITHREAD %d\n", i);
+                FilosofosFamintosMultithread ffm = new FilosofosFamintosMultithread(i, writer);
+                ffm.run();
+            }
+
+            writer.println();
+            writer.println("--------------------------------");
+            writer.println();
         }
-
         writer.close();
-
     }
 }
 

@@ -1,5 +1,4 @@
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.Random;
 
 public class SequentialNoThread {
@@ -7,14 +6,14 @@ public class SequentialNoThread {
     Long start;
     Long[] tesp, ttotal;
     FilosofoSeq[] filosofos;
-    PrintWriter writter;
+    PrintWriter writer;
 
     public SequentialNoThread(int _n, PrintWriter _w) {
         n = _n;
         filosofos = new FilosofoSeq[n];
         tesp = new Long[n];
         ttotal = new Long[n];
-        writter = _w;
+        writer = _w;
     }
 
     public void run() {
@@ -34,19 +33,19 @@ public class SequentialNoThread {
             totalEsp += tesp[i];
             totalExec += (ttotal[i] - tesp[i]);
         }
-        writter.println("Tempo médio de espera = ");
-        writter.println(totalEsp / n);
+        writer.println("Tempo médio de espera = ");
+        writer.println(totalEsp / n);
 
-        writter.print("Tempo médio de execução = ");
-        writter.println(totalExec / n);
+        writer.print("Tempo médio de execução = ");
+        writer.println(totalExec / n);
 
         long total = 0L;
         for (int i = 0; i < n; i++) {
             total += ttotal[i];
         }
 
-        writter.print("Tempo total de execução = ");
-        writter.println(total);
+        writer.print("Tempo total de execução = ");
+        writer.println(total);
 
     }
 }

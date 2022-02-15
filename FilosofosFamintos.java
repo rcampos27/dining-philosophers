@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.concurrent.Semaphore;
 
@@ -7,12 +8,14 @@ public class FilosofosFamintos {
     Long start;
     Long[] tesp, ttotal;
     Semaphore s = new Semaphore(1);
+    PrintWriter writter;
 
-    public FilosofosFamintos(int _n) {
+    public FilosofosFamintos(int _n, PrintWriter _w) {
         n = _n;
         threads = new Thread[n];
         tesp = new Long[n];
         ttotal = new Long[n];
+        writter = _w;
     }
 
     public void run() {
@@ -34,12 +37,24 @@ public class FilosofosFamintos {
             }
         }
 
-        System.out.print("Tempo total de espera = ");
-        System.out.println(Arrays.toString(tesp));
-        System.out.print("Tempo total de execução = ");
-        System.out.println(Arrays.toString(ttotal));
+        Long totalEsp = 0L;
+        long totalExec = 0L;
         for (int i = 0; i < n; i++) {
-            System.out.print(" [" + (ttotal[i] - tesp[i]) + "] ");
+            totalEsp += tesp[i];
+            totalExec += (ttotal[i] - tesp[i]);
         }
+        writter.println("Tempo médio de espera = ");
+        writter.println(totalEsp / n);
+
+        writter.print("Tempo médio de execução = ");
+        writter.println(totalExec / n);
+
+        long total = 0L;
+        for (int i = 0; i < n; i++) {
+            total += ttotal[i];
+        }
+
+        writter.print("Tempo total de execução = ");
+        writter.println(total);
     }
 }
