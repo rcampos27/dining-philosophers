@@ -1,6 +1,6 @@
 
 # Dining Philosophers
-This project that tackles the classic "Dining Philosophers" problem, exploring both sequential and multithreaded solutions. The primary objective is to model a scenario where a group of philosophers sits around a dining table, alternating between thinking and eating. The challenge lies in preventing deadlocks and resource conflicts as philosophers contend for shared resources (in this case, forks).
+This project tackles the classic "Dining Philosophers" problem, exploring both sequential and multithreaded solutions. The primary objective is to model a scenario where a group of philosophers sits around a dining table, alternating between thinking and eating. The challenge lies in preventing deadlocks and resource conflicts as philosophers contend for shared resources (in this case, forks).
 
 ## Components:
 * **SequentialNoThread:** A class representing the **_sequential solution_** to the Dining Philosophers problem without using threads.
